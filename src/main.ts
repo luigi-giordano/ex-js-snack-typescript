@@ -12,12 +12,19 @@
 // Se è una Promise: attendi che si risolva e stampa il valore del resolve.
 
 let dato: unknown;
+
 if (typeof dato === 'string') {
   console.log(dato.toUpperCase());
 } else if (typeof dato === 'number') {
   console.log(dato * 2);
 } else if (typeof dato === 'boolean') {
   console.log(dato ? 'Si' : 'No');
+} else if (dato === null) {
+  console.log('Dato vuoto');
+} else if (dato instanceof Array) {
+  console.log(dato.length);
+} else if (dato instanceof Promise) {
+  dato.then((message) => console.log(message));
 } else {
   console.log('Tipo non supportato');
 }
